@@ -1,7 +1,7 @@
 {
   "run_list": [
     "recipe[base]",
-    "recipe[php55]",
+    "recipe[php56]",
     "recipe[mysql::server]",
     "recipe[mysql::client]",
     //"recipe[phpmyadmin]",
@@ -20,7 +20,7 @@
   },
   "httpd": {
     "port": "80",
-    "docroot": "/var/www/html"
+    "docroot": "/var/www/app/webroot"
   },
   "php": {
     "timezone": "Asia/Tokyo"
