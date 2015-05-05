@@ -1,0 +1,24 @@
+{
+  "run_list": [
+    "recipe[php]",
+    //"recipe[httpd]",
+    "recipe[mysql::server]",
+    "recipe[mysql::client]",
+    //"recipe[phpmyadmin]",
+    "recipe[vim]",
+    "recipe[git]",
+    "recipe[openssl]"
+  ],
+  "automatic": {
+    "ipaddress": "192.168.33.10"
+  },
+  "mysql":{
+    "version":"5.6",
+    "port":"3306",
+    "server_root_password":"vagrant",
+    "remove_anonymous_users":true
+  },
+  "php":{
+    "version":"5.5"
+  }
+}
