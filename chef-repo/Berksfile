@@ -1,9 +1,6 @@
 site :opscode
 
-cookbook 'php'
-#cookbook 'httpd', '~> 0.2.12'
 cookbook 'mysql', '~> 5.3.6'
-cookbook 'phpmyadmin'
 cookbook 'vim'
 cookbook 'git'
 cookbook 'openssl'
