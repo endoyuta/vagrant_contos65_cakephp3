@@ -13,7 +13,7 @@ end
 
 
 # phpインストール
-%w{php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof php-intl}.each do |p|
+%w{php php-opcache php-devel php-mbstring php-mcrypt php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof php-intl phpmyadmin}.each do |p|
 	package p do
 		action :install
 		options "--enablerepo=remi --enablerepo=remi-php56"
@@ -24,6 +24,14 @@ end
 template "php.ini" do
 	path "/etc/php.ini"
 	source "php.ini.erb"
+	mode 0644
+	#notifies :restart, 'service[httpd]'
+end
+
+#phpmyadmin設定
+template "phpMyAdmin.conf" do
+	path "/etc/httpd/conf.d/phpMyAdmin.conf"
+	source "phpMyAdmin.conf.erb"
 	mode 0644
 	notifies :restart, 'service[httpd]'
 end
